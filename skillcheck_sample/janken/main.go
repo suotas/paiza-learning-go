@@ -30,16 +30,18 @@ func main() {
 			opponent.p++
 		}
 	}
+	fmt.Println(opponent)
 
 	// チョキ、パーの組み合わせを洗い出す
 	var combination []janken
 	for c := 0; c <= n; c++ {
 		for p := 0; p <= n; p++ {
-			if c*2+p*5 == m {
+			if c*2+p*5 == m && n-c-p >= 0 {
 				combination = append(combination, janken{n - c - p, c, p})
 			}
 		}
 	}
+	fmt.Println(combination)
 
 	// 一番多く勝てる組み合わせを探す
 	result := 0
@@ -48,23 +50,23 @@ func main() {
 
 		// パーで勝てる数をカウント
 		if opponent.g >= combi.p {
-			win += opponent.g
-		} else {
 			win += combi.p
+		} else {
+			win += opponent.g
 		}
 
 		// グーで勝てる数をカウント
 		if opponent.c >= combi.g {
-			win += opponent.c
-		} else {
 			win += combi.g
+		} else {
+			win += opponent.c
 		}
 
 		// チョキで勝てる数をカウント
 		if opponent.p >= combi.c {
-			win += opponent.p
-		} else {
 			win += combi.c
+		} else {
+			win += opponent.p
 		}
 
 		// 勝利数を更新
