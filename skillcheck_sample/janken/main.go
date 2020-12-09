@@ -30,7 +30,6 @@ func main() {
 			opponent.p++
 		}
 	}
-	fmt.Println(opponent)
 
 	// チョキ、パーの組み合わせを洗い出す
 	var combination []janken
@@ -41,7 +40,6 @@ func main() {
 			}
 		}
 	}
-	fmt.Println(combination)
 
 	// 一番多く勝てる組み合わせを探す
 	result := 0
