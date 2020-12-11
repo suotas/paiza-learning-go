@@ -1,21 +1,22 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
+	"strconv"
 )
 
+var sc = bufio.NewScanner(os.Stdin)
+
 func main() {
+
 	// nの読み込み
-	var n int
-	fmt.Scan(&n)
+	n := nextInt()
 
-	// カードの読み込み
 	var input []int
-	for i := 0; i < n; i++ {
-		var a int
-		fmt.Scan(&a)
-
-		input = append(input, a)
+	for range make([]int, n) {
+		input = append(input, nextInt())
 	}
 
 	// カードの組み合わせを作る
@@ -29,6 +30,15 @@ func main() {
 
 	// 7で割り切れた配列の数を出力
 	fmt.Println(sum)
+}
+
+func nextInt() int {
+	sc.Scan()
+	i, e := strconv.Atoi(sc.Text())
+	if e != nil {
+		panic(e)
+	}
+	return i
 }
 
 func getAllConbinationAt3(card []int) [][]int {
