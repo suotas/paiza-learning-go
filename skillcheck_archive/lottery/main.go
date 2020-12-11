@@ -20,18 +20,22 @@ func main() {
 	}
 
 	// aの読み込み
-	// var numbers []string
 	for range make([]int, n) {
 		a := nextLine()
 		if a == b {
+			// 1等
 			fmt.Println("first")
 		} else if isAdjacent(a, b) {
+			// 前後賞
 			fmt.Println("adjacent")
 		} else if equalLastDigits(a, b, 4) {
+			// 2等
 			fmt.Println("second")
 		} else if equalLastDigits(a, b, 3) {
+			// 3等
 			fmt.Println("third")
 		} else {
+			// 外れ
 			fmt.Println("blank")
 		}
 	}
